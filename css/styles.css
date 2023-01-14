@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+    /* Changed the root font-size to 10px to make the
+    mental conversion of the font size easier when
+    using rem */
+}
+
+html, body {
+    height: 100vh;
+    font-family: "Roboto", sans-serif;;
+}
