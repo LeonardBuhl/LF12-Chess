@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Board */ \"./src/modules/Board.js\");\n\n\n(0,_modules_Board__WEBPACK_IMPORTED_MODULE_0__.createBoard)(document);\n\n//# sourceURL=webpack://LF12-Chess/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Board */ \"./src/modules/Board.js\");\n\n\n(0,_modules_Board__WEBPACK_IMPORTED_MODULE_0__.createBoard)(document);\n\n// let img = document.createElement(\"img\");\n// img.src = \"../src/images/wrook.png\"\n// document.querySelector(\".table\").querySelector(\"td\").appendChild(img);\n\n//# sourceURL=webpack://LF12-Chess/./src/index.js?");
 
 /***/ }),
 
