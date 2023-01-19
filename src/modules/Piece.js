@@ -1,8 +1,8 @@
 class Piece {
-    constructor(initPosition, color) {
+    constructor(initPosition, color, img) {
         this.currentPosition = initPosition;
         this.color = color;
-        // this.img =
+        this.img = img;
     }
 
     setPosition(position) {
@@ -13,7 +13,15 @@ class Piece {
         return this.currentPosition;
     }
 
+    createPiece() {
+        let x = document.createElement("img");
+        x.src = this.img;
+        this.currentPosition.appendChild(x);
+    }
+
 
 
 
 }
+
+export {Piece}
