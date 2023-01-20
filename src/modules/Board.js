@@ -1,26 +1,79 @@
-const createBoard = (doc) => {
-    const board = doc.querySelector(".table");
-    // outer loop will create rows
-    for (let i = 0; i < 8; i++) {
-        const row = doc.createElement("tr");
-        row.setAttribute("id", i);
-        for (let j = 0; j < 8; j++) {
-        // inner loop will create cells
-            const cell = doc.createElement("td");
-            cell.setAttribute("id", j);
-            
-            // check if the cell should be colored white or black
-            if((i + j) % 2 === 0) {
-            cell.classList.add("white");
-            row.appendChild(cell);
-            }
-            else {
-            cell.classList.add("black");
-            row.appendChild(cell);
+// Class for creating and changing the virtual board that keeps track of the pieces
+
+import { Piece } from "./Piece";
+
+class Board {
+    constructor(board) {
+        // calls initializeBoard() when a new object instance is created
+        if (typeof board !== "undefined") {
+            this.board = board;
+        }
+        else {
+            this.initializeBoard();
+        }
+    };
+
+    initializeBoard() {
+        this.board = [];
+        for (let i = 0; i < 8; i++) {
+            this.board.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.board[i][j] = this.placePieces(i, j);
             }
         }
-    board.appendChild(row);
-    }
+    };
+
+    placePieces(i, j) {
+        let position = [i, j];
+        // White Pawns
+        if (i === 1) {
+            return new Piece(position, "white", "../images/wpawn");
+        }
+        // Black Pawns
+        else if (i === 6) {
+            return new Piece(position, "black", "../images/bpawn");
+        }
+        // White Knights (Springer)
+        else if (i === 0 && j === 1 || j === 6) {
+            return new Piece(position, "white", "../images/wknight");
+        }
+        // Black Knights (Springer)
+        else if (i === 7 && j === 1 || j === 6) {
+            return new Piece(position, "black", "../images/bknight");
+        }
+        // White Bishops (Läufer)
+        else if (i === 0 && j === 2 || j === 5) {
+            return new Piece(position, "white", "../images/wbishop");
+        }
+        // Black Bishops (Läufer)
+        else if (i === 7 && j === 2 || j === 5) {
+            return new Piece(position, "black", "../images/bbishop");
+        }
+        // White Queen
+        else if (i === 0 && j === 3) {
+            return new Piece(position, "white", "../images/wqueen");
+        }
+        // Black Queen
+        else if (i === 7 && j === 3) {
+            return new Piece(position, "black", "../images/bqueen");
+        }
+        // White King
+        else if (i === 0 && j === 4) {
+            return new Piece(position, "white", "../images/wking");
+        }
+        // Black King
+        else if (i === 7 && j === 4) {
+            return new Piece(position, "black", "../images/bking");
+        }
+        // White Rooks (Türme)
+        else if (i === 0 && j === 0) {
+            return new Piece(position, "white", "../images/wrook");
+        }
+        // White Rooks (Türme)
+        else if (i === 0 && j === 0) {
+            return new Piece(position, "black", "../images/brook");
+        }
+    };
 }
 
-export {createBoard};
+export { Board };

@@ -1,8 +1,9 @@
 class Piece {
-    constructor(initPosition, color) {
+    constructor(initPosition, color, imgSource) {
         this.currentPosition = initPosition;
         this.color = color;
-        // this.img =
+        this.img = document.createElement("img");
+        this.imgSource = imgSource;
     }
 
     setPosition(position) {
@@ -12,8 +13,6 @@ class Piece {
     getPosition() {
         return this.currentPosition;
     }
-
-
-
-
 }
+
+export {Piece}
