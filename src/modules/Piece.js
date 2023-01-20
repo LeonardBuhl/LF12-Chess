@@ -2,8 +2,8 @@ class Piece {
     constructor(initPosition, color, imgSource) {
         this.currentPosition = initPosition;
         this.color = color;
-        this.img = document.createElement("img"); //document.createElement("img");
-        this.imgSource = imgSource
+        this.img = document.createElement("img");
+        this.imgSource = imgSource;
     }
 
     setPosition(position) {

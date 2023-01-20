@@ -1,3 +1,5 @@
+import { Piece } from "./Piece";
+
 const createBoard = (doc) => {
     const board = doc.querySelector(".table");
     // outer loop will create rows
@@ -23,4 +25,15 @@ const createBoard = (doc) => {
     }
 }
 
-export {createBoard};
+// maybe array of start coordinates for pieces?
+const initializePieces = (doc) => {
+    const board = doc.querySelector(".table");
+    for (let i = 0; i < 2; i++) {
+        const rows = board.querySelectorAll("tr")[i];
+        for (let j = 0; j < 8; j++) {
+            new Piece(board.querySelectorAll("tr")[i].querySelectorAll("td")[j], "white", "../src/images/wrook.png").createPiece();
+        }
+    }
+}
+
+export {createBoard, initializePieces};

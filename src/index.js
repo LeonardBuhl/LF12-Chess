@@ -1,4 +1,4 @@
-import { createBoard } from "./modules/Board";
+import { createBoard, initializePieces } from "./modules/Board";
 import { Piece } from "./modules/Piece";
 
 // variables fro dom access
@@ -7,22 +7,23 @@ const row = document.querySelectorAll("tr");
 const cell = document.querySelectorAll("td");
 
 createBoard(document);
-
-const position = table.querySelectorAll("td")[3];
-const piece = new Piece(position, "white", "../src/images/wrook.png");
-console.log(piece)
-piece.createPiece();
-piece.movePiece(table.querySelectorAll("tr")[1].querySelectorAll("td")[1]);
+initializePieces(document);
 
 table.addEventListener("click", (e) => {
     if (e.target.className === "img") {
-        //piece.movePiece(getDestination)
+        console.log(e);
+        let selectedPiece = e.target.offsetParent
+        console.log(selectedPiece)
+        // show legal moveset of piece --> depending on class (pawn, king, usw.)
+        // user clicks on highlighted cell
+        // piece.movePiece(to highlighted cell)
     }
 });
 
-// let img = document.createElement("img");
-// img.src = "../src/images/wrook.png"
-// document.querySelector(".table").querySelector("td").appendChild(img);
+// Test piece
+const piece = new Piece(table.querySelectorAll("tr")[5].querySelectorAll("td")[5], "white", "../src/images/wrook.png");
+piece.createPiece();
+console.log(piece.currentPosition);
 
 
 // Get all Rows: document.querySelector(".table").querySelectorAll("tr");
@@ -31,3 +32,6 @@ table.addEventListener("click", (e) => {
 
 // Pawn Movement
 // --> Only forward one field (Two fields possible on first move)
+
+// Conclusion --> Handle board movements in 2d array in the background (Board.js)
+//            --> Render board + update board (Display.js)
