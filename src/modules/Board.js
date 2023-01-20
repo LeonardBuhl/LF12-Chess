@@ -73,7 +73,24 @@ class Board {
         else if (i === 7 && j === 0 || i === 7 && j === 7) {
             return new Piece(position, "black", "../images/brook");
         }
+
+        else () {
+            return null;
+        }
     };
+
+    isOccupying(i, j) {
+        return (board.board[i][j] !== undefined);
+    };
+
+    getOccupyingPiece() {
+        return board.board[i][j];
+    };
+
+    updatePosition() {
+        
+    };
+
 }
 
 export { Board };
