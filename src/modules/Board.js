@@ -4,7 +4,7 @@ import { Piece } from "./Piece";
 
 class Board {
     constructor(board) {
-        // calls initializeBoard() when a new object instance is created
+        // calls initializeBoard() when a new object instance is created (Singleton)
         if (typeof board !== "undefined") {
             this.board = board;
         }
@@ -34,19 +34,19 @@ class Board {
             return new Piece(position, "black", "../images/bpawn");
         }
         // White Knights (Springer)
-        else if (i === 0 && j === 1 || j === 6) {
+        else if (i === 0 && j === 1 || i === 0 && j === 6) {
             return new Piece(position, "white", "../images/wknight");
         }
         // Black Knights (Springer)
-        else if (i === 7 && j === 1 || j === 6) {
+        else if (i === 7 && j === 1 || i === 7 && j === 6) {
             return new Piece(position, "black", "../images/bknight");
         }
         // White Bishops (Läufer)
-        else if (i === 0 && j === 2 || j === 5) {
+        else if (i === 0 && j === 2 || i === 0 && j === 5) {
             return new Piece(position, "white", "../images/wbishop");
         }
         // Black Bishops (Läufer)
-        else if (i === 7 && j === 2 || j === 5) {
+        else if (i === 7 && j === 2 || i === 7 && j === 5) {
             return new Piece(position, "black", "../images/bbishop");
         }
         // White Queen
@@ -66,11 +66,11 @@ class Board {
             return new Piece(position, "black", "../images/bking");
         }
         // White Rooks (Türme)
-        else if (i === 0 && j === 0) {
+        else if (i === 0 && j === 0 || i === 0 && j === 7) {
             return new Piece(position, "white", "../images/wrook");
         }
-        // White Rooks (Türme)
-        else if (i === 0 && j === 0) {
+        // Black Rooks (Türme)
+        else if (i === 7 && j === 0 || i === 7 && j === 7) {
             return new Piece(position, "black", "../images/brook");
         }
     };
