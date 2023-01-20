@@ -1,8 +1,9 @@
 class Piece {
-    constructor(initPosition, color, img) {
+    constructor(initPosition, color, imgSource) {
         this.currentPosition = initPosition;
         this.color = color;
-        this.img = img;
+        this.img = document.createElement("img"); //document.createElement("img");
+        this.imgSource = imgSource
     }
 
     setPosition(position) {
@@ -14,9 +15,17 @@ class Piece {
     }
 
     createPiece() {
-        let x = document.createElement("img");
-        x.src = this.img;
-        this.currentPosition.appendChild(x);
+        this.img.src = this.imgSource;
+        this.img.classList.add("img");
+        this.currentPosition.appendChild(this.img);
+    }
+
+    movePiece(destination) {
+        // destination is the position the user clicks on
+        // we set the currentPosition to the destination cell
+        this.setPosition(destination);
+        // we place it at the new position
+        this.currentPosition.appendChild(this.img);
     }
 
 
