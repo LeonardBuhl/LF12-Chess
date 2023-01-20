@@ -1,14 +1,28 @@
-import { createBoard, initializePieces } from "./modules/Board";
-import { Piece } from "./modules/Piece";
+import { Board } from "./modules/Board";
+import { Display } from "./modules/Display";
 
-// variables fro dom access
+// variables for dom access
 const table = document.querySelector(".table");
 const row = document.querySelectorAll("tr");
 const cell = document.querySelectorAll("td");
 
-createBoard(document);
-initializePieces(document);
+// create new object instances
+const display = new Display();
+const board = new Board();
 
+// Access object on specific cell
+console.log(board.board[1][0]);
+console.log(board)
+
+display.render(document);
+
+
+
+
+
+
+
+// test Event Listener for later use
 table.addEventListener("click", (e) => {
     if (e.target.className === "img") {
         console.log(e);
@@ -19,19 +33,3 @@ table.addEventListener("click", (e) => {
         // piece.movePiece(to highlighted cell)
     }
 });
-
-// Test piece
-const piece = new Piece(table.querySelectorAll("tr")[5].querySelectorAll("td")[5], "white", "../src/images/wrook.png");
-piece.createPiece();
-console.log(piece.currentPosition);
-
-
-// Get all Rows: document.querySelector(".table").querySelectorAll("tr");
-// Get all Cells in Row x: document.querySelector(".table").querySelectorAll("tr")[index].querySelectorAll("td");
-// Get specific Cell in Row: document.querySelector(".table").querySelectorAll("tr")[index].querySelectorAll("td")[index];
-
-// Pawn Movement
-// --> Only forward one field (Two fields possible on first move)
-
-// Conclusion --> Handle board movements in 2d array in the background (Board.js)
-//            --> Render board + update board (Display.js)
