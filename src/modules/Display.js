@@ -1,5 +1,5 @@
 // Class for creating and changing the Display the user can see
-// TO-DO: Rewrite the render method to display the virtual board of the Board class
+// TO-DO: Change created Image element in render() to another element to identify it better??
 import { Board } from "./Board";
 import brook from "../images/brook.png"
 import wrook from "../images/wrook.png"
@@ -46,6 +46,11 @@ class Display {
             }
         board.appendChild(row);
         }
+    }
+
+    rerenderPosition() {
+        // rerender the object that moved on the virtual Gameboard
+        console.log("Hello")
     }
 }
 

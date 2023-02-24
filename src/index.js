@@ -1,21 +1,23 @@
 import { Display } from "./modules/Display";
+import { Board } from "./modules/Board";
 
 // variables for dom access
 const table = document.querySelector(".table");
 const row = document.querySelectorAll("tr");
 const cell = document.querySelectorAll("td");
 
-// create new object instances
+// Log display
 const display = new Display();
-// console.log(display)
-// console.log(display.virtualBoard)
-// console.log(display.virtualBoard.board[1][0])
 display.render(document);
 
 
-// const board = new Board()
-// console.log(board.board[1][0]);
-// console.log(board)
+// Log virtual board
+// Change currentPosition parameter of this object in this position
+// display.virtualBoard.board[0][0].currentPosition[0] = 1;
+// console.log(display.virtualBoard.board[0][0].currentPosition);
+
+const board = new Board();
+board.updatePosition(0, 0, 2, 0)
 
 
 

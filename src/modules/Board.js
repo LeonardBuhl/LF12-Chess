@@ -86,8 +86,19 @@ class Board {
         return board.board[i][j];
     };
 
-    updatePosition() {
+    updatePosition(startRow, startCell, endRow, endCell) {
+        // Move the old object to the new position
 
+        // save the spliced object in a temp variable
+        const temp = this.board[startRow].splice(startCell, 1, null);
+
+        // update currentPosition parameter of the object (Own method?)
+        temp[0].currentPosition = [endRow, endCell];
+
+        // insert at desired position
+        this.board[endRow].splice(endCell, 1, temp[0]);
+
+        console.log(this.board);
     };
 
 }
