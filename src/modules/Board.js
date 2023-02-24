@@ -73,8 +73,7 @@ class Board {
         else if (i === 7 && j === 0 || i === 7 && j === 7) {
             return new Piece(position, "black", "../images/brook");
         }
-
-        else () {
+        else {
             return null;
         }
     };

@@ -1,11 +1,17 @@
 // Class for creating and changing the Display the user can see
+// TO-DO: Rewrite the render method to display the virtual board of the Board class
+import { Board } from "./Board";
+import brook from "../images/brook.png"
+import wrook from "../images/wrook.png"
 
 class Display {
     constructor(board) {
-        this.board = board;
+        // initialize new instance of the virtual Board
+        this.virtualBoard = new Board;
     }
 
     render(doc) {
+        console.log(this.virtualBoard.board)
         const board = doc.querySelector(".table");
         // outer loop will create rows
         for (let i = 0; i < 8; i++) {
@@ -24,6 +30,18 @@ class Display {
                 else {
                 cell.classList.add("black");
                 row.appendChild(cell);
+                }
+
+                // place pieces (at the moment only rooks)
+                if (this.virtualBoard.board[i][j] !== null && cell.className === "white") {
+                    const img = doc.createElement("img");
+                    img.setAttribute("src", brook);
+                    cell.appendChild(img);
+                }
+                else if (this.virtualBoard.board[i][j] !== null && cell.className === "black") {
+                    const img = doc.createElement("img");
+                    img.setAttribute("src", wrook);
+                    cell.appendChild(img);
                 }
             }
         board.appendChild(row);

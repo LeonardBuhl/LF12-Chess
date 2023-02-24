@@ -1,4 +1,3 @@
-import { Board } from "./modules/Board";
 import { Display } from "./modules/Display";
 
 // variables for dom access
@@ -8,14 +7,15 @@ const cell = document.querySelectorAll("td");
 
 // create new object instances
 const display = new Display();
-const board = new Board();
-
-// Access object on specific cell
-console.log(board.board[1][0]);
-console.log(board)
-
+// console.log(display)
+// console.log(display.virtualBoard)
+// console.log(display.virtualBoard.board[1][0])
 display.render(document);
 
+
+// const board = new Board()
+// console.log(board.board[1][0]);
+// console.log(board)
 
 
 
