@@ -86,8 +86,8 @@ class Board {
         return board.board[i][j];
     };
 
+    // Move object to the new position
     updatePosition(startRow, startCell, endRow, endCell) {
-        // Move the old object to the new position
 
         // save the spliced object in a temp variable
         const temp = this.board[startRow].splice(startCell, 1, null);
@@ -97,8 +97,6 @@ class Board {
 
         // insert at desired position
         this.board[endRow].splice(endCell, 1, temp[0]);
-
-        console.log(this.board);
     };
 
 }

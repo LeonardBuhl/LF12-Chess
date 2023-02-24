@@ -1,18 +1,15 @@
 // Class for creating and changing the Display the user can see
-// TO-DO: Change created Image element in render() to another element to identify it better??
-import { Board } from "./Board";
 import brook from "../images/brook.png"
 import wrook from "../images/wrook.png"
 
 class Display {
     constructor(board) {
         // initialize new instance of the virtual Board
-        this.virtualBoard = new Board;
+        this.virtualBoard = board;
+        this.board = document.querySelector(".table");
     }
 
     render(doc) {
-        console.log(this.virtualBoard.board)
-        const board = doc.querySelector(".table");
         // outer loop will create rows
         for (let i = 0; i < 8; i++) {
             const row = doc.createElement("tr");
@@ -44,13 +41,17 @@ class Display {
                     cell.appendChild(img);
                 }
             }
-        board.appendChild(row);
+        this.board.appendChild(row);
         }
     }
 
-    rerenderPosition() {
+    rerender() {
         // rerender the object that moved on the virtual Gameboard
-        console.log("Hello")
+        while (this.board.firstChild) {
+            this.board.removeChild(this.board.lastChild);
+        }
+        
+        this.render(document);
     }
 }
 
