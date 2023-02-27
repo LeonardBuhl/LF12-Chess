@@ -13,6 +13,7 @@ class Board {
         }
     };
 
+    // initializes the board with an 8*8 grid and places the pieces
     initializeBoard() {
         this.board = [];
         for (let i = 0; i < 8; i++) {
@@ -88,6 +89,9 @@ class Board {
 
     // Move object to the new position
     updatePosition(startRow, startCell, endRow, endCell) {
+
+        // How to move pieces:
+        // if newPosition IS IN piece.getLegalMoves AND IS NOT currentPosition AND IS NOT (isOccupying AND getOccupyingPiece.getColor != piece.getColor)
 
         // save the spliced object in a temp variable
         const temp = this.board[startRow].splice(startCell, 1, null);
