@@ -1,4 +1,4 @@
-class Pawn extends Piece {
+class Knight extends Piece {
     constructor(position) {
         let wasMoved = false;
         super(position);
@@ -9,4 +9,4 @@ class Pawn extends Piece {
     }
 }
 
-export {Pawn}
+export {Knight}

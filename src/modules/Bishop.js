@@ -5,9 +5,13 @@ class Bishop extends Piece {
     }
 
     getLegalMoves() {
-        this.getMovesNorthWest(),
-        getMovesNorthEast(),
-        getMovesSouthWest(),
-        getMovesSouthEast()
+        return [
+            this.getMovesNorthWest(),
+            this.getMovesNorthEast(),
+            this.getMovesSouthWest(),
+            this.getMovesSouthEast()
+        ]
     }
 }
+
+export {Bishop}
