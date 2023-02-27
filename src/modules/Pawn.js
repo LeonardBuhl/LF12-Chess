@@ -1,3 +1,5 @@
+import { Piece } from "./Piece";
+
 class Pawn extends Piece {
     constructor(position) {
         let wasMoved = false;

@@ -102,3 +102,5 @@ class Piece {
 
 
 }
+
+export { Piece }

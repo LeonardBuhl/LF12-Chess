@@ -1,3 +1,5 @@
+import { Piece } from "./Piece";
+
 class Bishop extends Piece {
     constructor(position) {
         let wasMoved = false;
@@ -14,4 +16,4 @@ class Bishop extends Piece {
     }
 }
 
-export {Bishop}
+export { Bishop }
