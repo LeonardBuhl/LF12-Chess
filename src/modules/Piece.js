@@ -1,4 +1,4 @@
-class Piece {
+export default class Piece {
     constructor(initPosition, color, imgSource, id) {
         this.currentPosition = initPosition;
         this.color = color;
@@ -77,29 +77,48 @@ class Piece {
             move[0]--;
             move[1]--;
         }
+
+        return movesNorthWest;
     }
 
     getMovesNorthEast() {
         let movesNorthEast = [];
 
         let move = this.position;
-        while(move[0] <= 0 && move[1] >= 7) {
+        while(move[0] <= 7 && move[1] >= 0) {
             movesNorthEast.push(move);
-            move[0]--;
-            move[1]++;
+            move[0]++;
+            move[1]--;
         }
+
+        return movesNorthEast;
     }
 
     getMovesSouthWest() {
-        let movesWest = [];
+        let movesSouthWest = [];
+
+        let move = this.position;
+        while(move[0] >= 0 && move[1] <= 7) {
+            movesSouthWest.push(move);
+            move[0]--;
+            move[1]++;
+        }
+
+        return movesSouthWest;
     }
 
     getMovesSouthEast() {
-        let movesWest = [];
+        let movesSouthEast = [];
+
+        let move = this.position;
+        while(move[0] <= 7 && move[1] <= 7) {
+            movesSouthEast.push(move);
+            move[0]++;
+            move[1]++;
+        }
+
+        return movesSouthEast;
     }
-
-
-
 
 }
 
