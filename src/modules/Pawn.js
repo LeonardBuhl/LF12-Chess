@@ -7,7 +7,7 @@ class Pawn extends Piece {
     }
 
     getLegalMoves() {
-        let position = this.position;
+        let position = this.currentPosition;
         let legalMoves = [];
 
         if (this.color == 'white') {
@@ -31,7 +31,7 @@ class Pawn extends Piece {
     }
 
     getAttackMoves() {
-        let position = his.position;
+        let position = this.currentPosition;
         let attackMoves = [];
 
         if (this.color == 'white') {

@@ -17,7 +17,7 @@ class King extends Piece {
     }
 
     getLegalMoves() {
-        let position = this.position;
+        let position = this.currentPosition;
 
         return [
             [position[0], position[1]],
