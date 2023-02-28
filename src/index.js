@@ -34,16 +34,16 @@ let initialPosition = [];
 let destination = [];
 
 
-// PROBLEM: there are 2 board instances and I only want one (Singleton)
 table.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
-        initialPosition = [e.target.parentNode.parentNode.id, e.target.parentNode.id];
+        initialPosition = [Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id)];
         console.log("first click", initialPosition);
+        // get legal Moveset of selected Piece and display it
+        display.highlightMoveset(Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id));
         pieceClicked = true;
-        // Highlight Cell and Legal Moveset
     }
     else if (e.target.tagName === "TD" && pieceClicked) {
-        destination = [e.target.parentNode.id, e.target.id]
+        destination = [Number(e.target.parentNode.id), Number(e.target.id)]
         console.log("2nd click", initialPosition, destination);
         // Validate Move
         // Updates Position on virtual Board
