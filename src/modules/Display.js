@@ -6,7 +6,8 @@ class Display {
     constructor(board) {
         // initialize new instance of the virtual Board
         this.virtualBoard = board;
-        this.board = document.querySelector(".table");
+        this.table = document.querySelector(".table");
+        this.rows = document.querySelector(".table").children;
     }
 
     render(doc) {
@@ -41,17 +42,31 @@ class Display {
                     cell.appendChild(img);
                 }
             }
-        this.board.appendChild(row);
+        this.table.appendChild(row);
         }
     }
 
+    // rerender the object that moved on the virtual Gameboard    
     rerender() {
-        // rerender the object that moved on the virtual Gameboard
-        while (this.board.firstChild) {
-            this.board.removeChild(this.board.lastChild);
+        while (this.table.firstChild) {
+            this.table.removeChild(this.table.lastChild);
         }
         
         this.render(document);
+    }
+
+    // Highlight the legal moveset of the selected Piece
+    highlightMoveset(startRow, startCell) {
+        // create obj with selected Piece
+        const obj = this.virtualBoard.board[startRow][startCell];
+
+        // Loop trough the arrays of legal moves
+        obj.getLegalMoves().forEach(element => {
+            element.forEach(element => {
+                const cell = this.rows[element[0]].children[element[1]];
+                cell.style.backgroundColor = "red"
+            })
+        });
     }
 }
 
