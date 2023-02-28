@@ -19,7 +19,7 @@ class Knight extends Piece {
             [position[0]-1, position[1]+2],
             [position[0]+1, position[1]-2],
             [position[0]-1, position[1]-2]
-        ]
+        ];
     }
 }
 

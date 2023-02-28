@@ -29,7 +29,7 @@ class King extends Piece {
             [position[0]-1, position[1]-1],
             [position[0]-1, position[1]+1],
             [position[0]+1, position[1]-1]
-        ]
+        ];
     }
 
     disable_castling() {

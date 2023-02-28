@@ -26,7 +26,7 @@ class Rook extends Piece {
             this.getMovesEast(),
             this.getMovesSouth(),
             this.getMovesWest()
-        ]
+        ];
     }
 }
 

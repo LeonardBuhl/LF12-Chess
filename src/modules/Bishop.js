@@ -12,7 +12,7 @@ class Bishop extends Piece {
             this.getMovesNorthEast(),
             this.getMovesSouthWest(),
             this.getMovesSouthEast()
-        ]
+        ];
     }
 }
 

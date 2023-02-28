@@ -16,7 +16,7 @@ class Queen extends Piece {
             this.getMovesSouthWest(),
             this.getMovesWest(),
             this.getMovesNorthWest()
-        ]
+        ];
     }
 }
 
