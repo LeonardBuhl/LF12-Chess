@@ -94,8 +94,6 @@ export default class Piece {
             movesNorthEast.push([x, y]);
             x -= 1;
             y += 1;
-            console.log("x " + x + "y " + y)
-            console.log(typeof(y))
         }
 
         return movesNorthEast;
