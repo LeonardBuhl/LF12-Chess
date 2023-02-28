@@ -1,5 +1,7 @@
 import { Display } from "./modules/Display";
 import { Board } from "./modules/Board";
+import {Piece} from "./modules/Piece";
+import { Queen } from "./modules/Queen";
 
 // variables for dom access
 const table = document.querySelector(".table");
@@ -12,6 +14,13 @@ const board = new Board();
     // 4. updates Position on virtual Board
     // 5. rerenders Gameboard
 
+// Test with piece
+const piece = new Piece([2, 3]);
+// console.log(piece.getMovesSouthEast())
+
+// Test with queen
+const queen = new Queen([2, 3]);
+// console.log(queen.getLegalMoves());
 
 // Log display and initialize Display instance
 const display = new Display(board);
