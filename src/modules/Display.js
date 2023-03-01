@@ -1,6 +1,16 @@
 // Class for creating and changing the Display the user can see
 import brook from "../images/brook.png"
 import wrook from "../images/wrook.png"
+import bbishop from "../images/bbishop.png"
+import wbishop from "../images/wbishop.png"
+import bknight from "../images/bknight.png"
+import wknight from "../images/wknight.png"
+import bpawn from "../images/bpawn.png"
+import wpawn from "../images/wpawn.png"
+import bqueen from "../images/bqueen.png"
+import wqueen from "../images/wqueen.png"
+import bking from "../images/bking.png"
+import wking from "../images/wking.png"
 
 class Display {
     constructor(board) {
@@ -8,6 +18,20 @@ class Display {
         this.virtualBoard = board;
         this.table = document.querySelector(".table");
         this.rows = document.querySelector(".table").children;
+        this.pieces = {
+            brook: brook,
+            wrook: wrook,
+            bbishop: bbishop,
+            wbishop: wbishop,
+            bknight: bknight,
+            wknight: wknight,
+            bpawn: bpawn,
+            wpawn: wpawn,
+            bqueen: bqueen,
+            wqueen: wqueen,
+            bking: bking,
+            wking: wking
+        }
     }
 
     render(doc) {
@@ -31,14 +55,18 @@ class Display {
                 }
 
                 // place pieces (at the moment only rooks)
-                if (this.virtualBoard.board[i][j] !== null && cell.className === "white") {
+                if (this.virtualBoard.board[i][j] !== null) {
+                    const name = this.virtualBoard.board[i][j].id;
+                    let imgSource;
+
+                    Object.entries(this.pieces).forEach(([key, value]) => {
+                        if (key === name) {
+                            imgSource = value;
+                        }
+                    })
+
                     const img = doc.createElement("img");
-                    img.setAttribute("src", brook);
-                    cell.appendChild(img);
-                }
-                else if (this.virtualBoard.board[i][j] !== null && cell.className === "black") {
-                    const img = doc.createElement("img");
-                    img.setAttribute("src", wrook);
+                    img.setAttribute("src", imgSource);
                     cell.appendChild(img);
                 }
             }

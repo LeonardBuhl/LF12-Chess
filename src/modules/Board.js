@@ -33,51 +33,51 @@ class Board {
         let position = [i, j];
         // White Pawns
         if (i === 1) {
-            return new Pawn(position, "white", "../images/wpawn");
+            return new Pawn(position, "white", "../images/wpawn", "wpawn");
         }
         // Black Pawns
         else if (i === 6) {
-            return new Pawn(position, "black", "../images/bpawn");
+            return new Pawn(position, "black", "../images/bpawn", "wpawn");
         }
         // White Knights (Springer)
         else if (i === 0 && j === 1 || i === 0 && j === 6) {
-            return new Knight(position, "white", "../images/wknight");
+            return new Knight(position, "white", "../images/wknight", "wknight");
         }
         // Black Knights (Springer)
         else if (i === 7 && j === 1 || i === 7 && j === 6) {
-            return new Knight(position, "black", "../images/bknight");
+            return new Knight(position, "black", "../images/bknight", "wknight");
         }
         // White Bishops (Läufer)
         else if (i === 0 && j === 2 || i === 0 && j === 5) {
-            return new Bishop(position, "white", "../images/wbishop");
+            return new Bishop(position, "white", "../images/wbishop", "wbishop");
         }
         // Black Bishops (Läufer)
         else if (i === 7 && j === 2 || i === 7 && j === 5) {
-            return new Bishop(position, "black", "../images/bbishop");
+            return new Bishop(position, "black", "../images/bbishop", "wbishop");
         }
         // White Queen
         else if (i === 0 && j === 3) {
-            return new Queen(position, "white", "../images/wqueen");
+            return new Queen(position, "white", "../images/wqueen", "wqueen");
         }
         // Black Queen
         else if (i === 7 && j === 3) {
-            return new Queen(position, "black", "../images/bqueen");
+            return new Queen(position, "black", "../images/bqueen", "wqueen");
         }
         // White King
         else if (i === 0 && j === 4) {
-            return new King(position, "white", "../images/wking");
+            return new King(position, "white", "../images/wking", "wking");
         }
         // Black King
         else if (i === 7 && j === 4) {
-            return new King(position, "black", "../images/bking");
+            return new King(position, "black", "../images/bking", "wking");
         }
         // White Rooks (Türme)
         else if (i === 0 && j === 0 || i === 0 && j === 7) {
-            return new Rook(position, "white", "../images/wrook");
+            return new Rook(position, "white", "../images/wrook", "wrook");
         }
         // Black Rooks (Türme)
         else if (i === 7 && j === 0 || i === 7 && j === 7) {
-            return new Rook(position, "black", "../images/brook");
+            return new Rook(position, "black", "../images/brook", "wrook");
         }
         else {
             return null;
@@ -94,7 +94,6 @@ class Board {
 
     // Move object to the new position
     updatePosition(startRow, startCell, endRow, endCell) {
-
         // How to move pieces:
         // if newPosition IS IN piece.getLegalMoves AND IS NOT currentPosition AND IS NOT (isOccupying AND getOccupyingPiece.getColor != piece.getColor)
 
