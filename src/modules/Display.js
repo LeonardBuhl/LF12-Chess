@@ -18,15 +18,15 @@ class Display {
         this.virtualBoard = board;
         this.table = document.querySelector(".table");
         this.rows = document.querySelector(".table").children;
-        this.pieces = {
+        this.images = {
+            wpawn: wpawn,
+            bpawn: bpawn,
             brook: brook,
             wrook: wrook,
             bbishop: bbishop,
             wbishop: wbishop,
             bknight: bknight,
             wknight: wknight,
-            bpawn: bpawn,
-            wpawn: wpawn,
             bqueen: bqueen,
             wqueen: wqueen,
             bking: bking,
@@ -59,11 +59,13 @@ class Display {
                     const name = this.virtualBoard.board[i][j].id;
                     let imgSource;
 
-                    Object.entries(this.pieces).forEach(([key, value]) => {
+                    for (const [key, value] of Object.entries(this.images)) {
+                        console.log("searching for: " + name)
                         if (key === name) {
                             imgSource = value;
+                            break
                         }
-                    })
+                    }
 
                     const img = doc.createElement("img");
                     img.setAttribute("src", imgSource);
