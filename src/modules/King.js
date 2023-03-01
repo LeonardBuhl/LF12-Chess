@@ -1,10 +1,10 @@
 import { Piece } from "./Piece";
 
 class King extends Piece {
-    constructor(position) {
+    constructor(position, color, imgSource, id) {
         let wasMoved = false;
         let canCastle = true;
-        super(position);
+        super(position, color, imgSource, id);
     }
 
     setPosition(position) {

@@ -1,9 +1,9 @@
 import { Piece } from "./Piece";
 
 class Knight extends Piece {
-    constructor(position) {
+    constructor(position, color, imgSource, id) {
         let wasMoved = false;
-        super(position);
+        super(position, color, imgSource, id);
     }
 
     getLegalMoves() {
