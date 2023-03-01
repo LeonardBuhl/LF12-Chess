@@ -60,7 +60,6 @@ class Display {
                     let imgSource;
 
                     for (const [key, value] of Object.entries(this.images)) {
-                        console.log("searching for: " + name)
                         if (key === name) {
                             imgSource = value;
                             break
