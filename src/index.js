@@ -26,7 +26,8 @@ const queen = new Queen([2, 3]);
 const display = new Display(board);
 display.render(document);
 
-
+let white = document.querySelectorAll(".Player_One");
+let black = document.querySelectorAll(".Player_Two")
 
 // test Event Listener for later use
 let turn = "white";
@@ -35,30 +36,39 @@ let movesetVisualized = false;
 let initialPosition = [];
 let destination = [];
 
+const eventListeners = (pieces) => {
+    pieces.forEach(piece => {
+        piece.addEventListener("click", (e) => {
+            if (movesetVisualized === true) {
+                display.clearMove();
+                movesetVisualized = false;
+            }
+            initialPosition = [Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id)];
+            console.log("first click", initialPosition);
+            // get legal Moveset of selected Piece and display it
+            display.highlightMoveset(Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id));
+            movesetVisualized = true;
+            pieceClicked = true;
+        })
+    })
+}
 
-// DIFFERENT Event Listeners for White and Black necessary (Depending on the turn the event Listeners will get created or removed)
-// Or is it necessary to create EVent Listeners for all Pieces?
 table.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG") {
-        if (movesetVisualized === true) {
-            display.clearMove();
-            movesetVisualized = false;
-        }
-        initialPosition = [Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id)];
-        console.log("first click", initialPosition);
-        // get legal Moveset of selected Piece and display it
-        display.highlightMoveset(Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id));
-        movesetVisualized = true;
-        pieceClicked = true;
-    }
-    else if (e.target.tagName === "TD" && pieceClicked) {
+    if (e.target.tagName === "TD" && pieceClicked) {
         destination = [Number(e.target.parentNode.id), Number(e.target.id)]
         console.log("2nd click", initialPosition, destination);
         // Validate Move
         // Updates Position on virtual Board
         board.updatePosition(initialPosition[0], initialPosition[1], destination[0], destination[1]);
-        // Rerenders Gameboard
+        // Rerenders Gameboard and adds Event Listeners
         display.rerender();
+        white = document.querySelectorAll(".Player_One");
+        black = document.querySelectorAll(".Player_Two");
+        eventListeners(white);
+        // eventListeners(black);
         pieceClicked = false;
     }
 });
+
+eventListeners(white);
+eventListeners(black);

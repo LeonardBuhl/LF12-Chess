@@ -19,18 +19,18 @@ class Display {
         this.table = document.querySelector(".table");
         this.rows = document.querySelector(".table").children;
         this.images = {
-            wpawn: wpawn,
-            bpawn: bpawn,
-            brook: brook,
-            wrook: wrook,
-            bbishop: bbishop,
-            wbishop: wbishop,
-            bknight: bknight,
-            wknight: wknight,
-            bqueen: bqueen,
-            wqueen: wqueen,
-            bking: bking,
-            wking: wking
+            Wpawn: wpawn,
+            Bpawn: bpawn,
+            Brook: brook,
+            Wrook: wrook,
+            Bbishop: bbishop,
+            Wbishop: wbishop,
+            Bknight: bknight,
+            Wknight: wknight,
+            Bqueen: bqueen,
+            Wqueen: wqueen,
+            Bking: bking,
+            Wking: wking
         }
     }
 
@@ -67,6 +67,14 @@ class Display {
                     }
 
                     const img = doc.createElement("img");
+
+                    if (name.includes("W") === true) {
+                        img.classList.add("Player_One")
+                    }
+                    else if (name.includes("B") === true) {
+                        img.classList.add("Player_Two")
+                    }
+
                     img.setAttribute("src", imgSource);
                     cell.appendChild(img);
                 }

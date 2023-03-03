@@ -33,51 +33,51 @@ class Board {
         let position = [i, j];
         // White Pawns
         if (i === 1) {
-            return new Pawn(position, "white", "../images/wpawn", "wpawn");
+            return new Pawn(position, "white", "../images/wpawn", "Wpawn");
         }
         // Black Pawns
         else if (i === 6) {
-            return new Pawn(position, "black", "../images/bpawn", "bpawn");
+            return new Pawn(position, "black", "../images/bpawn", "Bpawn");
         }
         // White Knights (Springer)
         else if (i === 0 && j === 1 || i === 0 && j === 6) {
-            return new Knight(position, "white", "../images/wknight", "wknight");
+            return new Knight(position, "white", "../images/wknight", "Wknight");
         }
         // Black Knights (Springer)
         else if (i === 7 && j === 1 || i === 7 && j === 6) {
-            return new Knight(position, "black", "../images/bknight", "bknight");
+            return new Knight(position, "black", "../images/bknight", "Bknight");
         }
         // White Bishops (Läufer)
         else if (i === 0 && j === 2 || i === 0 && j === 5) {
-            return new Bishop(position, "white", "../images/wbishop", "wbishop");
+            return new Bishop(position, "white", "../images/wbishop", "Wbishop");
         }
         // Black Bishops (Läufer)
         else if (i === 7 && j === 2 || i === 7 && j === 5) {
-            return new Bishop(position, "black", "../images/bbishop", "bbishop");
+            return new Bishop(position, "black", "../images/bbishop", "Bbishop");
         }
         // White Queen
         else if (i === 0 && j === 3) {
-            return new Queen(position, "white", "../images/wqueen", "wqueen");
+            return new Queen(position, "white", "../images/wqueen", "Wqueen");
         }
         // Black Queen
         else if (i === 7 && j === 3) {
-            return new Queen(position, "black", "../images/bqueen", "bqueen");
+            return new Queen(position, "black", "../images/bqueen", "Bqueen");
         }
         // White King
         else if (i === 0 && j === 4) {
-            return new King(position, "white", "../images/wking", "wking");
+            return new King(position, "white", "../images/wking", "Wking");
         }
         // Black King
         else if (i === 7 && j === 4) {
-            return new King(position, "black", "../images/bking", "bking");
+            return new King(position, "black", "../images/bking", "Bking");
         }
         // White Rooks (Türme)
         else if (i === 0 && j === 0 || i === 0 && j === 7) {
-            return new Rook(position, "white", "../images/wrook", "wrook");
+            return new Rook(position, "white", "../images/wrook", "Wrook");
         }
         // Black Rooks (Türme)
         else if (i === 7 && j === 0 || i === 7 && j === 7) {
-            return new Rook(position, "black", "../images/brook", "brook");
+            return new Rook(position, "black", "../images/brook", "Brook");
         }
         else {
             return null;
