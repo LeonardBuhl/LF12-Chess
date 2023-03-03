@@ -102,16 +102,39 @@ class Board {
     updatePosition(startRow, startCell, endRow, endCell) {
         // How to move pieces:
         // if newPosition IS IN piece.getLegalMoves AND IS NOT currentPosition AND IS NOT (isOccupying AND getOccupyingPiece.getColor != piece.getColor)
+        /*
+            if newPosition IS IN piece.getLegalMoves (Done)
+            AND IS NOT currentPosition (Not necessary because the event Listener will register click on own position as click on the piece)
+            AND IS NOT (isOccupying AND getOccupyingPiece.getColor != piece.getColor)
+        */
 
-        // save the spliced object in a temp variable
-        const temp = this.board[startRow].splice(startCell, 1, null);
+        const piece = this.board[startRow][startCell];
 
-        // update currentPosition parameter of the object (Own method?)
-        temp[0].currentPosition = [endRow, endCell];
+        // check if newPosition is IN piece.getLegalMoves()
+        if (this.isLegalMove(piece, endRow, endCell) === true) {
+            // save the spliced object in a temp variable
+            const temp = this.board[startRow].splice(startCell, 1, null);
 
-        // insert at desired position
-        this.board[endRow].splice(endCell, 1, temp[0]);
+            // update currentPosition parameter of the object
+            temp[0].currentPosition = [endRow, endCell];
+
+            // insert at desired position
+            this.board[endRow].splice(endCell, 1, temp[0]);
+        }
     };
+
+    isLegalMove(piece, i, j) {
+        let isLegal = false;
+        piece.getLegalMoves().forEach(element => {
+            element.forEach(element => {
+                if (element[0] === i && element[1] === j) {
+                    isLegal = true;
+                    return isLegal
+                }
+            })
+        });
+        return isLegal
+    }
 
 }
 

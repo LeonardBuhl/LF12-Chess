@@ -29,12 +29,15 @@ display.render(document);
 
 
 // test Event Listener for later use
+let turn = "white";
 let pieceClicked = false;
 let movesetVisualized = false;
 let initialPosition = [];
 let destination = [];
 
 
+// DIFFERENT Event Listeners for White and Black necessary (Depending on the turn the event Listeners will get created or removed)
+// Or is it necessary to create EVent Listeners for all Pieces?
 table.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
         if (movesetVisualized === true) {
