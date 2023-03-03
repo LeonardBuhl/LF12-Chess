@@ -30,16 +30,22 @@ display.render(document);
 
 // test Event Listener for later use
 let pieceClicked = false;
+let movesetVisualized = false;
 let initialPosition = [];
 let destination = [];
 
 
 table.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
+        if (movesetVisualized === true) {
+            display.clearMove();
+            movesetVisualized = false;
+        }
         initialPosition = [Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id)];
         console.log("first click", initialPosition);
         // get legal Moveset of selected Piece and display it
         display.highlightMoveset(Number(e.target.parentNode.parentNode.id), Number(e.target.parentNode.id));
+        movesetVisualized = true;
         pieceClicked = true;
     }
     else if (e.target.tagName === "TD" && pieceClicked) {

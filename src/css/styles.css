@@ -43,3 +43,11 @@ tr > td {
 .black {
     background-color: black;
 }
+
+.white.allowed {
+    background-color: red;
+}
+
+.black.allowed {
+    background-color: red;
+}

@@ -93,8 +93,15 @@ class Display {
         obj.getLegalMoves().forEach(element => {
             element.forEach(element => {
                 const cell = this.rows[element[0]].children[element[1]];
-                cell.style.backgroundColor = "red"
+                cell.classList.add("allowed");
             })
+        });
+    }
+
+    clearMove() {
+        const allowed = document.querySelectorAll(".allowed");
+        allowed.forEach(element => {
+            element.classList.remove("allowed");
         });
     }
 }
