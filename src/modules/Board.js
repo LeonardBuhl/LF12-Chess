@@ -84,12 +84,18 @@ class Board {
         }
     };
 
+    // returns true or false if the given position is occupied by another Piece
     isOccupying(i, j) {
-        return (board.board[i][j] !== undefined);
+        if (this.board[i][j] !== null) {
+            return true
+        }
+        else {
+            return false
+        }
     };
 
-    getOccupyingPiece() {
-        return board.board[i][j];
+    getOccupyingPiece(i, j) {
+        return this.board[i][j]
     };
 
     // Move object to the new position
