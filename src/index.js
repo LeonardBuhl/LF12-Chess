@@ -36,6 +36,19 @@ let movesetVisualized = false;
 let initialPosition = [];
 let destination = [];
 
+const changeTurns = () => {
+    if (turn === "white") {
+        black = document.querySelectorAll(".Player_Two");
+        eventListeners(black);
+        turn = "black";
+    }
+    else {
+        white = document.querySelectorAll(".Player_One");
+        eventListeners(white);
+        turn = "white";
+    }
+}
+
 const eventListeners = (pieces) => {
     pieces.forEach(piece => {
         piece.addEventListener("click", (e) => {
@@ -62,13 +75,10 @@ table.addEventListener("click", (e) => {
         board.updatePosition(initialPosition[0], initialPosition[1], destination[0], destination[1]);
         // Rerenders Gameboard and adds Event Listeners
         display.rerender();
-        white = document.querySelectorAll(".Player_One");
-        black = document.querySelectorAll(".Player_Two");
-        eventListeners(white);
-        // eventListeners(black);
+        changeTurns();
         pieceClicked = false;
     }
 });
 
+// White has the first Turn
 eventListeners(white);
-eventListeners(black);
