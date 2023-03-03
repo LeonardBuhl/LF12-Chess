@@ -98,6 +98,7 @@ class Display {
         });
     }
 
+    // clears the Highlighted Moveset after you click on another Piece
     clearMove() {
         const allowed = document.querySelectorAll(".allowed");
         allowed.forEach(element => {

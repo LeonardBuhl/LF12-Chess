@@ -37,7 +37,7 @@ class Board {
         }
         // Black Pawns
         else if (i === 6) {
-            return new Pawn(position, "black", "../images/bpawn", "wpawn");
+            return new Pawn(position, "black", "../images/bpawn", "bpawn");
         }
         // White Knights (Springer)
         else if (i === 0 && j === 1 || i === 0 && j === 6) {
@@ -45,7 +45,7 @@ class Board {
         }
         // Black Knights (Springer)
         else if (i === 7 && j === 1 || i === 7 && j === 6) {
-            return new Knight(position, "black", "../images/bknight", "wknight");
+            return new Knight(position, "black", "../images/bknight", "bknight");
         }
         // White Bishops (Läufer)
         else if (i === 0 && j === 2 || i === 0 && j === 5) {
@@ -53,7 +53,7 @@ class Board {
         }
         // Black Bishops (Läufer)
         else if (i === 7 && j === 2 || i === 7 && j === 5) {
-            return new Bishop(position, "black", "../images/bbishop", "wbishop");
+            return new Bishop(position, "black", "../images/bbishop", "bbishop");
         }
         // White Queen
         else if (i === 0 && j === 3) {
@@ -61,7 +61,7 @@ class Board {
         }
         // Black Queen
         else if (i === 7 && j === 3) {
-            return new Queen(position, "black", "../images/bqueen", "wqueen");
+            return new Queen(position, "black", "../images/bqueen", "bqueen");
         }
         // White King
         else if (i === 0 && j === 4) {
@@ -69,7 +69,7 @@ class Board {
         }
         // Black King
         else if (i === 7 && j === 4) {
-            return new King(position, "black", "../images/bking", "wking");
+            return new King(position, "black", "../images/bking", "bking");
         }
         // White Rooks (Türme)
         else if (i === 0 && j === 0 || i === 0 && j === 7) {
@@ -77,7 +77,7 @@ class Board {
         }
         // Black Rooks (Türme)
         else if (i === 7 && j === 0 || i === 7 && j === 7) {
-            return new Rook(position, "black", "../images/brook", "wrook");
+            return new Rook(position, "black", "../images/brook", "brook");
         }
         else {
             return null;
